@@ -5,13 +5,15 @@
 # Preparing -----------------------------------------------------------------------------------
 #Sys.setlocale(category = 'LC_ALL', locale = 'English_United States.1252')
 
+# Import My function code, I can sent you this function file.
+# This file includs all the package and function which may be used.
 source('D:/Academic/academic/Assetpricing/Myfunction.R')
 
 # Import Daily Stock Market Data --------------------------------------------------------------
-
+# This data is RDS file. You can import your data. 
 Marketret_day_stock <- readRDS('D:/Academic/academic/Assetpricing/Output/Marketret_day_stock.RDS')
 
-# Add dummy variables of week days
+# Add dummy variables of week days.
 Marketret_day_stock[,':='(Tue = ifelse(weekdays(Day) == 'Tuesday',1,0),
                           Wed = ifelse(weekdays(Day) == 'Wednesday',1,0),
                           Thu = ifelse(weekdays(Day) == 'Thursday',1,0),
