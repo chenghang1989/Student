@@ -21,7 +21,7 @@ Marketret_day_stock[,':='(Tue = ifelse(weekdays(Day) == 'Tuesday',1,0),
 
 # Model
 
-m1 <- lm(er ~ Tue + Wed + Thu + Fri, Marketret_day_stock[Day >= '2015-01-01' & Day <= '2021-12-31'])
+m1 <- lm(er ~ Tue + Wed + Thu + Fri, Marketret_day_stock[Day >= '2000-01-01' & Day <= '2011-12-31'])
 m1nw <- coeftest(m1,vcov = NeweyWest(m1))
 stargazer(m1nw,m1,
           title = 'Univariate Forecasting Regression NW Adjust',
@@ -29,7 +29,7 @@ stargazer(m1nw,m1,
           style = "all",font.size = 'tiny',no.space = T,align = F)
 
 
-# Add dummy variables of week days
+# Add dummy variables of 4
 Marketret_day_stock[,':='(four = ifelse(day(Day) == 4 |day(Day) == 14 |day(Day) == 24 ,1,0))]
 
 # Model
